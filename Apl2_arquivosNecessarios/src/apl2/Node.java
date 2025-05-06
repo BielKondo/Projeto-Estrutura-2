@@ -19,20 +19,19 @@ public class Node {
 	private String ID;
 	private String nome;
 	private float nota;
-	private Node next;
+	private Node prox;
 
 	public Node() {
 		this.ID = null;
 		this.nome = null;
 		this.nota = 0.0f;
-		this.next = null;
+		this.prox = null;
 	}
 
-	public Node(String ID, String nome, float nota, Node next) {
+	public Node(String ID, String nome, float nota) {
 		this.ID = ID;
 		this.nome = nome;
 		this.nota = nota;
-		this.next = next;
 	}
 
 	public String getID() {
@@ -59,12 +58,12 @@ public class Node {
 		this.nota = nota;
 	}
 
-	public Node getNext() {
-		return next;
+	public Node getProx() {
+		return prox;
 	}
 
-	public void setNext(Node next) {
-		this.next = next;
+	public void setProx(Node prox) {
+		this.prox = prox;
 	}
 
 	@Override
