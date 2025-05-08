@@ -10,18 +10,18 @@ public class NodeOriginal {
 	private int id;
 	private String nome;
 	private int inteiro;
-	private int decimo;
+	private int decimal;
 	private NodeOriginal next;
 	
 	public NodeOriginal() {
 		this(-1, "", 0, 0, null);
 	}
 	
-	public NodeOriginal(int id, String nome, int inteiro, int decimo, NodeOriginal next) {
+	public NodeOriginal(int id, String nome, int inteiro, int decimal, NodeOriginal next) {
 		this.id = id;
 		this.nome = nome;
 		this.inteiro = inteiro;
-		this.decimo = decimo;
+		this.decimal = decimal;
 		this.next = next;
 	}
 	
@@ -49,12 +49,12 @@ public class NodeOriginal {
 		this.inteiro = inteiro;
 	}
 	
-	public int getDecimo() {
-		return decimo;
+	public int getDecimal() {
+		return decimal;
 	}
 	
-	public void setDecimo(int decimo) {
-		this.decimo = decimo;
+	public void setDecimal(int decimal) {
+		this.decimal = decimal;
 	}
 
 	public NodeOriginal getNext() {
@@ -67,7 +67,7 @@ public class NodeOriginal {
 	
 	@Override
 	public String toString() {
-		return "[dados: (" + id + ";" + nome + ";" + inteiro + ";" + decimo + ") | next: " + next + "]";
+		return "[dados: (" + id + ";" + nome + ";" + inteiro + ";" + decimal + ") | next: " + next + "]";
 	}
 
 }

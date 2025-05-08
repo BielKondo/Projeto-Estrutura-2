@@ -158,7 +158,7 @@ public class LinkedListOriginal {
 			.append(" # ")
 			.append(node.getInteiro())
 			.append(" # ")
-			.append(node.getDecimo())
+			.append(node.getDecimal())
 			.append(") -> \n");
 			node = node.getNext();
 		}

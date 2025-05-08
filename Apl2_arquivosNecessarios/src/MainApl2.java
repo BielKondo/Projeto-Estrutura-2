@@ -5,7 +5,7 @@
 //*************************** ATENÇÃO! ****************************
 // arquivo: src/MainApl2.java
 
-// TODO: Colocar a identificação dos(as) integrantes aqui.
+// Eduardo Kenji Hernandes Ikematu - 10439924; Gabriel Hideaquy Kondo - 10436238; João Pedro Sinzato Bocchini - 10440034
 // TODO: Listar todas as referências consultadas para solucionar a atividade.
 
 import apl2.DLinkedList;
@@ -18,9 +18,32 @@ public class MainApl2 {
 	public static void main(String[] args) {
 		LinkedListOriginal list = new LinkedListOriginal();
 
-		
-		// TODO: Carregar o conteúdo do arquivo "dados.txt" e adicionar cada linha como um nó na LinkedListOriginal list.
-
+		list.insert(680, "Zacarias", -1, 0);
+		list.insert(579, "Yasmin", 9, 3);
+		list.insert(468, "Xavier", 8, 2);
+		list.insert(357, "Wilma", 5, -1);
+		list.insert(246, "Vanderlei", 10, 0);
+		list.insert(135, "Ursula", 9, 1);
+		list.insert(505, "Thales", -1, 0);
+		list.insert(464, "Samanta", 8, 3);
+		list.insert(373, "Ronildo", -1, -1);
+		list.insert(282, "Quiteroa", 3, 9);
+		list.insert(191, "Plinio", 0, 3);
+		list.insert(987, "Odete", 4, 7);
+		list.insert(654, "Nivaldo", 2, 1);
+		list.insert(321, "Matilda", 6, 3);
+		list.insert(789, "Leonidas", 5, 2);
+		list.insert(456, "Karen", 9, 9);
+		list.insert(123, "Jorge", 7, 5);
+		list.insert(999, "Ivone", -1, -1);
+		list.insert(888, "Hector", 0, 1);
+		list.insert(777, "Gertrudes", 0, -1);
+		list.insert(666, "Felix", 2, 3);
+		list.insert(555, "Edna", 4, 5);
+		list.insert(444, "Denis", -1, 0);
+		list.insert(333, "Cida", 6, 7);
+		list.insert(222, "Breno", 8, 9);
+		list.insert(111, "Allana", 10, 0);
 		
 		System.out.println(">>>>>>>>>> Dados originais (sistema legado) >>>>>>>>>>");
 		System.out.println(list);
