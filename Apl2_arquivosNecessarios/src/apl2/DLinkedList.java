@@ -216,16 +216,23 @@ public class DLinkedList {
 		sb.append("(" + cont + ") \n");
 		
 		Node node = head;
+
+		sb.append("null");
+		 
 		while (node != null) {
-			sb.append("(")
+			sb.append(" <- ")
+			.append("(")
 			.append(node.getID())
 			.append(" # ")
 			.append(node.getNome())
 			.append(" # ")
 			.append(node.getNota())
-			.append(" # ")
-			.append(") -> \n");
+			.append(") -> ");
 			node = node.getProx();
+			if (node != null) {
+				sb.append(node.getID())
+				.append("\n");
+			}	
 		}
 		sb.append("null.");
 		
