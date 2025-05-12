@@ -168,11 +168,11 @@ public class DLinkedList {
 		}
 
 		Node atual = head;
-    	Node prox = head.getProx();
+    	Node prox = atual.getProx();
 
 		while (prox != null && !prox.getID().equals(id)) {
 			atual = prox;
-			prox.getProx();
+			prox = prox.getProx();
 		}
 
 		if (prox == null) { // Chegou no último nó e não encontrou o ID
@@ -214,26 +214,51 @@ public class DLinkedList {
 		StringBuilder sb = new StringBuilder();
 		
 		sb.append("(" + cont + ") \n");
-		
+
 		Node node = head;
+		Node anterior = node;
+		int cont = 0;
+		int nos = count();
 
 		sb.append("null");
 		 
 		while (node != null) {
-			sb.append(" <- ")
-			.append("(")
-			.append(node.getID())
-			.append(" # ")
-			.append(node.getNome())
-			.append(" # ")
-			.append(node.getNota())
-			.append(") -> ");
-			node = node.getProx();
-			if (node != null) {
-				sb.append(node.getID())
-				.append("\n");
-			}	
+			if (cont == 0) {
+				sb.append(" <- (")
+				  .append(node.getID())
+				  .append("; ")
+				  .append(node.getNome())
+				  .append("; ")
+				  .append(node.getNota())
+				  .append(") -> ");
+				  node = node.getProx();
+				  sb.append(node.getID())
+				    .append("\n");
+
+				cont++;
+			} else {
+				sb.append(anterior.getID())
+				  .append(" <- (")
+				  .append(node.getID())
+				  .append("; ")
+				  .append(node.getNome())
+				  .append("; ")
+				  .append(node.getNota())
+				  .append(") -> ");
+				  node = node.getProx();
+				  anterior = anterior.getProx();
+				  if (node != null) {
+					  sb.append(node.getID())
+					    .append("\n");
+				  }
+				  cont++;
+			}
+
+			if (cont == nos) {
+				cont = 0;
+			}
 		}
+		
 		sb.append("null.");
 		
 		return sb.toString();

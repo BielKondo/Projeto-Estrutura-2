@@ -166,21 +166,16 @@ public class Operation {
 	public static String mapToString(final DLinkedList data) {
 		StringBuilder sb = new StringBuilder();
 		Node head = data.getHead();
-		int count = data.count();
-
-		sb.append("(" + count + ") \n");
 	
 		while (head != null) {
-			sb.append("(")
-			.append(head.getID())
-			.append(" # ")
-			.append(head.getNome())
-			.append(" # ")
-			.append(head.getNota())
-			.append(") -> \n");
+			sb.append(head.getID())
+			  .append(";")
+			  .append(head.getNome())
+			  .append(";")
+			  .append(head.getNota())
+			  .append("\n");
 			head = head.getProx();
 		}
-		sb.append("null.");
 		
 		return sb.toString();
 	}
