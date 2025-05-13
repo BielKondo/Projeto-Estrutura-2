@@ -19,6 +19,7 @@ public class DLinkedList {
 	private Node head;
 	private Node tail;
 	private int cont;
+	
 
 
 // OPERAÇÃO:		Método construtor
@@ -34,8 +35,17 @@ public class DLinkedList {
 // COMPORTAMENTO:	Aloca um Node que contém os <dados da pessoa> e insere o
 //					novo nó no início da lista.
 	public void insert(String ID, String nome, float nota) {
-		Node novoNo = new Node(ID, nome, nota);
-		novoNo.setProx(head);
+		Node novoNo = new Node();
+		novoNo.setID(ID);
+		novoNo.setNome(nome);
+		novoNo.setNota(nota);
+		if (head == null) { // Se a lista estiver vazia
+			head = tail = novoNo;
+		} else {
+			novoNo.setProx(head);
+			head.setAnterior(novoNo);
+			head = novoNo;
+		}
 		head = novoNo;
 		cont++;
 	}
@@ -45,12 +55,15 @@ public class DLinkedList {
 // COMPORTAMENTO:	Aloca um Node que contém os <dados da pessoa> e insere o
 //					novo nó no final da lista.
 	public void append(String ID, String nome, float nota) {
-		Node novoNo = new Node(ID, nome, nota);
-		novoNo.setProx(null);
+		Node novoNo = new Node();
+		novoNo.setID(ID);
+		novoNo.setNome(nome);
+		novoNo.setNota(nota);
 
 		if (head == null) { // Se a lista estiver vazia
 			head = tail = novoNo;
 		} else {
+			novoNo.setAnterior(tail);
 			tail.setProx(novoNo);
 			tail = novoNo;
 		}
@@ -65,9 +78,18 @@ public class DLinkedList {
 	public Node removeHead() {
 		if (head == null) {
 			return null;
-		} else {
+		}
+
+		if (head == tail) {
+			Node aux = head;
+			head = tail = null;
+			return aux;
+		}
+		
+		else {
 			Node aux = head;
 			head = head.getProx();
+			head.setAnterior(null);
 			return aux;
 		}
 	}
@@ -216,50 +238,53 @@ public class DLinkedList {
 		sb.append("(" + cont + ") \n");
 
 		Node node = head;
-		Node anterior = node;
-		int cont = 0;
-		int nos = count();
 
-		sb.append("null");
+		//sb.append("null");
 		 
 		while (node != null) {
-			if (cont == 0) {
-				sb.append(" <- (")
-				  .append(node.getID())
-				  .append("; ")
-				  .append(node.getNome())
-				  .append("; ")
-				  .append(node.getNota())
-				  .append(") -> ");
-				  node = node.getProx();
-				  sb.append(node.getID())
-				    .append("\n");
 
-				cont++;
-			} else {
-				sb.append(anterior.getID())
-				  .append(" <- (")
-				  .append(node.getID())
-				  .append("; ")
-				  .append(node.getNome())
-				  .append("; ")
-				  .append(node.getNota())
-				  .append(") -> ");
-				  node = node.getProx();
-				  anterior = anterior.getProx();
-				  if (node != null) {
-					  sb.append(node.getID())
-					    .append("\n");
-				  }
-				  cont++;
-			}
-
-			if (cont == nos) {
-				cont = 0;
-			}
+			sb.append(node.toString())
+			  .append("\n");
+			  node = node.getProx();
 		}
+			// if (cont == 0) {
+			// 	sb.append("null")
+			// 	  .append(" <- (")
+			// 	  .append(node.getID())
+			// 	  .append("; ")
+			// 	  .append(node.getNome())
+			// 	  .append("; ")
+			// 	  .append(node.getNota())
+			// 	  .append(") -> ");
+			// 	  node = node.getProx();
+			// 	  sb.append(node.getID())
+			// 	    .append("\n");
+
+			// 	cont++;
+			// } else {
+			// 	sb.append(anterior.getID())
+			// 	  .append(" <- (")
+			// 	  .append(node.getID())
+			// 	  .append("; ")
+			// 	  .append(node.getNome())
+			// 	  .append("; ")
+			// 	  .append(node.getNota())
+			// 	  .append(") -> ");
+			// 	  node = node.getProx();
+			// 	  anterior = anterior.getProx();
+			// 	  if (node != null) {
+			// 		  sb.append(node.getID())
+			// 		    .append("\n");
+			// 	  }
+			// 	  cont++;
+			// }
+
+			// if (cont == nos) {
+			// 	cont = 0;
+			// }
+		//}
 		
-		sb.append("null.");
+		//sb.append("null.");
 		
 		return sb.toString();
 	}

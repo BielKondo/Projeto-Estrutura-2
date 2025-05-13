@@ -19,19 +19,24 @@ public class Node {
 	private String ID;
 	private String nome;
 	private float nota;
+	private Node anterior;
 	private Node prox;
 
 	public Node() {
 		this.ID = null;
 		this.nome = null;
 		this.nota = 0.0f;
+		this.anterior = null;
 		this.prox = null;
+
 	}
 
-	public Node(String ID, String nome, float nota) {
+	public Node(String ID, String nome, float nota, Node anterior, Node prox) {
 		this.ID = ID;
 		this.nome = nome;
 		this.nota = nota;
+		this.anterior = anterior;
+		this.prox = prox;
 	}
 
 	public String getID() {
@@ -58,6 +63,14 @@ public class Node {
 		this.nota = nota;
 	}
 
+	public Node getAnterior() {
+		return anterior;
+	}
+
+	public void setAnterior(Node anterior) {
+		this.anterior = anterior;
+	}
+
 	public Node getProx() {
 		return prox;
 	}
@@ -68,6 +81,29 @@ public class Node {
 
 	@Override
 	public String toString() {
-		return "ID: " + ID + ", Nome: " + nome + ", Nota: " + nota;
+		StringBuilder sb = new StringBuilder();
+
+		String IDanterior = "null";
+		String IDprox = "null";
+
+		if (anterior == null) {
+			IDanterior = anterior.getID();
+		}
+
+		if (prox == null) {
+			IDprox = prox.getID();
+		}
+
+		sb.append(IDanterior)
+		  .append(" <- (")
+		  .append(ID)
+		  .append("; ")
+		  .append(nome)
+		  .append("; ")
+		  .append(nota)
+		  .append(") -> ")
+		  .append(IDprox);
+
+		return sb.toString();
 	}
 }
