@@ -62,11 +62,19 @@ public class DLinkedList {
 
 		if (head == null) { // Se a lista estiver vazia
 			head = tail = novoNo;
-		} else {
-			novoNo.setAnterior(tail);
-			tail.setProx(novoNo);
-			tail = novoNo;
+			cont++;
 		}
+		
+		Node aux = head;
+		
+		while (aux.getProx() != null) { // Percorre até o último nó
+			aux = aux.getProx();
+		}
+
+		aux.setProx(novoNo); // aux -> (tail), novoNo
+		novoNo.setAnterior(aux); // aux <- novoNo
+		novoNo.setProx(null); // aux -> <- (tail), novoNo, null
+		tail = novoNo; // aux -> <- (tail), novoNo -> (tail), null
 		cont++;
 	}
 
@@ -80,18 +88,23 @@ public class DLinkedList {
 			return null;
 		}
 
-		if (head == tail) {
+		if (head == tail) { // 1 elemento apenas
 			Node aux = head;
 			head = tail = null;
+			cont--;
 			return aux;
 		}
+
+		Node aux = head;
+		head = head.getProx();
+		head.setProx(head.getProx());
+		head.setAnterior(null);
+		cont--;
+
+		aux.setProx(null); // aux -> (head), null
+		aux.setAnterior(null); // aux -> (head), null
+		return aux;
 		
-		else {
-			Node aux = head;
-			head = head.getProx();
-			head.setAnterior(null);
-			return aux;
-		}
 	}
 
 
@@ -104,22 +117,52 @@ public class DLinkedList {
 			return null;
 		}
 		
-		if (head == tail) {
+		if (head == tail) { // 1 elemento apenas
 			Node aux = tail;
 			head = tail = null;
+			cont--;
 			return aux;
 		}
 		
 		// Percorre até o penúltimo nó
-		Node atual = head;
-		while (atual.getProx() != tail) {
-			atual = atual.getProx();
-		}
-	
-		Node aux = tail;
-		tail = atual;
-		tail.setProx(null);
-		return aux;
+		Node aux = tail.getAnterior();
+		Node ultimo = tail;
+		
+		aux.setProx(null);
+    	tail = aux;
+
+    	ultimo.setAnterior(null);
+    	ultimo.setProx(null);
+
+    	cont--;
+    	return ultimo;
+
+		// if (atual.getProx() == null) { 		 // 2 elementos apenas
+		// 	tail = head;
+		// 	tail.setProx(null);	
+		// 	tail.setAnterior(null); // aux -> (head), atual -> (tail), null
+		// 	cont--;
+		// 	return atual;
+		// }
+		
+		// while (atual.getProx() != null) { // aux, atual, atual.getProx(), x -> (tail)...
+		// 	aux = atual;
+		// 	atual = atual.getProx();
+		// }
+		
+
+		// Node aux2 = tail; // aux, atual, atual.getProx() -> (tail), null
+
+		// // Define o proximo nó e o nó anterior
+		// tail = atual; // aux, atual -> (tail), null
+		// tail.setAnterior(aux);	
+		// aux.setProx(null);
+		// cont--;
+
+		// // Define a referência do nó removido
+		// aux2.setProx(null); // aux2 -> (tail), null
+		// aux2.setAnterior(null); // aux2 -> (tail), null
+		// return aux2;
 	}
 
 
@@ -133,27 +176,42 @@ public class DLinkedList {
 			return null;
 		}
 
-		if (head.getID().equals(id)) {
+		if (head.getID().equals(id)) { // Se o nó a ser removido for o head
 			Node aux = head;
 			head = head.getProx();
+			if (head != null) {
+            	head.setAnterior(null);
+        	}
 			cont--;
-			return aux;
+			aux.setProx(null);
+        	aux.setAnterior(null);	
+        	return aux;
 		}
 		
 		Node atual = head;
-    	Node prox = head.getProx();
+    	Node prox = atual.getProx();
 
 		while (prox != null && !prox.getID().equals(id)) {
 			atual = prox;
-			prox.getProx();
+			prox = prox.getProx();
 		}
 
     	if (prox == null) { // Chegou no último nó e não encontrou o ID
         	return null;
     	}
 
-    	atual.setProx(prox.getProx()); // Caso atual.getID() == id
+		if (prox.getProx() == null) {
+        	atual.setProx(null);
+    	}
+
+		// Define o proximo nó e o nó anterior
+    	atual.setProx(prox.getProx()); // Caso prox.getID() == id      atual, prox, prox.getProx()
+		prox.getProx().setAnterior(atual); // atual, prox.getProx()
     	cont--;
+
+		// Define a referência do nó removido
+		prox.setProx(null); // prox, null
+		prox.setAnterior(null); // prox, null
     	return prox;
 	}
 	
@@ -185,8 +243,8 @@ public class DLinkedList {
 			return null;
 		}
 
-		if (head.getID().equals(id)) {
-			return head;
+		if (head.getID().equals(id)) { // Se o nó for o head
+			getHead();
 		}
 
 		Node atual = head;

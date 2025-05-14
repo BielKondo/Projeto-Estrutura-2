@@ -83,18 +83,22 @@ public class Node {
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 
-		String IDanterior = "null";
-		String IDprox = "null";
+		String IDAnterior;
+        String IDProx;
 
-		if (anterior == null) {
-			IDanterior = anterior.getID();
+		if (anterior != null) {
+    		IDAnterior = anterior.getID();
+		} else {
+    		IDAnterior = "null";
 		}
 
-		if (prox == null) {
-			IDprox = prox.getID();
+		if (prox != null) {
+    		IDProx = prox.getID();
+		} else {
+    		IDProx = "null";
 		}
 
-		sb.append(IDanterior)
+		sb.append(IDAnterior)
 		  .append(" <- (")
 		  .append(ID)
 		  .append("; ")
@@ -102,8 +106,51 @@ public class Node {
 		  .append("; ")
 		  .append(nota)
 		  .append(") -> ")
-		  .append(IDprox);
+		  .append(IDProx);
 
-		return sb.toString();
+
+
+
+        return sb.toString();
+
+		// String IDanterior = "null";
+		// String IDprox = "null";
+
+		// Node node = this;
+
+		// if (anterior == null) {
+		// 	//IDanterior = anterior.getID();
+		// 	sb.append(IDanterior);
+		// 	IDanterior = node.getID();
+		// 	node = node.getProx();
+		// 	IDprox = prox.getProx().getID();
+		// }
+
+		// if (prox != null) {
+		// 	if (prox.getProx() == null) {
+		// 		IDprox = "null";
+		// 	}
+		// 	//sb.append(IDprox);
+		// 	IDanterior = node.getID();
+		// 	node = node.getProx();
+		// 	IDprox = prox.getProx().getID();
+		// }
+
+		// while (node != null) {
+		// 	sb.append(IDanterior)
+		//   	  .append(" <- (")
+		//   	  .append(ID)
+		//   	  .append("; ")
+		//   	  .append(nome)
+		//   	  .append("; ")
+		//   	  .append(nota)
+		//   	  .append(") -> ")
+		//   	  .append(IDprox);
+		// 	  IDanterior = node.getID();
+		// 	  node = node.getProx();
+		// 	  IDprox = prox.getProx().getID();
+		// }
+
+		//return sb.toString();
 	}
 }

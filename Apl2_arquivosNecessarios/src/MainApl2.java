@@ -80,7 +80,6 @@ public class MainApl2 {
 		
 		
 
-		System.out.println(fixedList.getHead());
 		
 		Node test1 = fixedList.getNode("23.S1-999");
 		System.out.println(">>>>>>>>>> test1 >>>>>>>>>>\n" + test1 + "\n<<<<<<<<<< test1 <<<<<<<<<<\n");
@@ -95,13 +94,10 @@ public class MainApl2 {
 		System.out.println(">>>>>>>>>> aboveAverageList.clear() >>>>>>>>>>\n" + aboveAverageList + "\n<<<<<<<<<< aboveAverageList.clear() <<<<<<<<<<\n");
 
 		DLinkedList testList = new DLinkedList();
-		// TODO: Inserir um nó no início da lista testList com os dados ("ABC", "John Doe", 4.7f).
-		testList.insert("ABC", "John Doe", 4.7f);
-		// TODO: Inserir um nó no final da lista testList com os dados ("XYZ", "Jane Doe", 9.9f).
-		testList.append("XYZ", "Jane Doe", 9.9f);
-		// TODO: Inserir um nó no início da lista testList com os dados ("321", "Test", 2.3f).
+
+		testList.insert("ABC", "John Doe", 4.7f);  // (321, Test, 2.3) ; (ABC, John Doe, 4.7) 
+		testList.append("XYZ", "Jane Doe", 9.9f);	// (XYZ, Jane Doe, 9.9) ; (Nothing, Yada yada yada, 99.9)
 		testList.insert("321", "Test", 2.3f);
-		// TODO: Inserir um nó no final da lista testList com os dados ("Nothing", "Yada yada yada", 99.9f).
 		testList.append("Nothing", "Yada yada yada", 99.9f);
 
 		System.out.println(">>>>>>>>>> testList >>>>>>>>>>\n" + testList  + "\n<<<<<<<<<< testList <<<<<<<<<<\n");

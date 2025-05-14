@@ -169,9 +169,9 @@ public class Operation {
 	
 		while (head != null) {
 			sb.append(head.getID())
-			  .append(";")
+			  .append("; ")
 			  .append(head.getNome())
-			  .append(";")
+			  .append("; ")
 			  .append(head.getNota())
 			  .append("\n");
 			head = head.getProx();
