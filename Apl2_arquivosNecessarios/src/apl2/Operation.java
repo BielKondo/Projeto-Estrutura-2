@@ -27,7 +27,7 @@ public class Operation {
 		int contador = 0;
 		int qtd = original.count();
 
-		while (contador < qtd && head != null) {
+		while (contador < qtd && head != null) { // verifica se transformou todos os nós
 		// ID
 		int id = head.getId();
 		String idS = "23.S1-" + id;
@@ -46,9 +46,9 @@ public class Operation {
 			nota = Float.parseFloat(n);
 		}
 
-		listaDupla.append(idS, nome, nota);
+		listaDupla.append(idS, nome, nota); // adiciona o nó transformado na listaDupla
 		contador++;
-		head = head.getNext();
+		head = head.getNext(); // avança para o próximo nó
 		}
 
 		return listaDupla;
@@ -148,7 +148,7 @@ public class Operation {
 			head = head.getProx();
 		}
 
-		float media = soma / data.count();
+		float media = soma / data.count(); // Divide a soma das notas pela quantidade de nós
 
 		return media;
 	}

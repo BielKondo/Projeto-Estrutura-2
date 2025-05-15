@@ -96,11 +96,12 @@ public class DLinkedList {
 		}
 
 		Node aux = head;
-		head = head.getProx();
+		head = head.getProx(); // head (antigo), head.getProx() -> head
 		head.setProx(head.getProx());
 		head.setAnterior(null);
 		cont--;
 
+		// Define o proximo nó e o nó anterior do nó removido
 		aux.setProx(null); // aux -> (head), null
 		aux.setAnterior(null); // aux -> (head), null
 		return aux;
@@ -124,45 +125,18 @@ public class DLinkedList {
 			return aux;
 		}
 		
-		// Percorre até o penúltimo nó
-		Node aux = tail.getAnterior();
+		Node aux = tail.getAnterior(); // Pega o nó anterior ao tail
 		Node ultimo = tail;
 		
-		aux.setProx(null);
-    	tail = aux;
+		aux.setProx(null); // Define o próximo nó do nó anterior ao tail como null, ou seja, remove o antigo tail
+    	tail = aux; // Atualiza o tail para o nó anterior (aux)
 
+		// Define o proximo nó e o nó anterior do nó removido
     	ultimo.setAnterior(null);
     	ultimo.setProx(null);
 
     	cont--;
     	return ultimo;
-
-		// if (atual.getProx() == null) { 		 // 2 elementos apenas
-		// 	tail = head;
-		// 	tail.setProx(null);	
-		// 	tail.setAnterior(null); // aux -> (head), atual -> (tail), null
-		// 	cont--;
-		// 	return atual;
-		// }
-		
-		// while (atual.getProx() != null) { // aux, atual, atual.getProx(), x -> (tail)...
-		// 	aux = atual;
-		// 	atual = atual.getProx();
-		// }
-		
-
-		// Node aux2 = tail; // aux, atual, atual.getProx() -> (tail), null
-
-		// // Define o proximo nó e o nó anterior
-		// tail = atual; // aux, atual -> (tail), null
-		// tail.setAnterior(aux);	
-		// aux.setProx(null);
-		// cont--;
-
-		// // Define a referência do nó removido
-		// aux2.setProx(null); // aux2 -> (tail), null
-		// aux2.setAnterior(null); // aux2 -> (tail), null
-		// return aux2;
 	}
 
 
@@ -183,6 +157,8 @@ public class DLinkedList {
             	head.setAnterior(null);
         	}
 			cont--;
+
+			// Define o proximo nó e o nó anterior do nó removido
 			aux.setProx(null);
         	aux.setAnterior(null);	
         	return aux;
@@ -191,8 +167,8 @@ public class DLinkedList {
 		Node atual = head;
     	Node prox = atual.getProx();
 
-		while (prox != null && !prox.getID().equals(id)) {
-			atual = prox;
+		while (prox != null && !prox.getID().equals(id)) { // Enquanto o próximo nó não for o último e o próximo nó não for o ID a ser procurado
+			atual = prox; 
 			prox = prox.getProx();
 		}
 
@@ -200,12 +176,12 @@ public class DLinkedList {
         	return null;
     	}
 
-		if (prox.getProx() == null) {
+		if (prox.getProx() == null && prox.getID().equals(id)) { // atual, prox, prox.getProx() == (null)
         	atual.setProx(null);
     	}
 
 		// Define o proximo nó e o nó anterior
-    	atual.setProx(prox.getProx()); // Caso prox.getID() == id      atual, prox, prox.getProx()
+    	atual.setProx(prox.getProx()); // Caso prox.getID() == id      atual, prox, prox.getProx(), a, ...
 		prox.getProx().setAnterior(atual); // atual, prox.getProx()
     	cont--;
 
@@ -243,7 +219,7 @@ public class DLinkedList {
 			return null;
 		}
 
-		if (head.getID().equals(id)) { // Se o nó for o head
+		if (head.getID().equals(id)) { // Se o ID do nó procurado for o head
 			getHead();
 		}
 
@@ -305,44 +281,6 @@ public class DLinkedList {
 			  .append("\n");
 			  node = node.getProx();
 		}
-			// if (cont == 0) {
-			// 	sb.append("null")
-			// 	  .append(" <- (")
-			// 	  .append(node.getID())
-			// 	  .append("; ")
-			// 	  .append(node.getNome())
-			// 	  .append("; ")
-			// 	  .append(node.getNota())
-			// 	  .append(") -> ");
-			// 	  node = node.getProx();
-			// 	  sb.append(node.getID())
-			// 	    .append("\n");
-
-			// 	cont++;
-			// } else {
-			// 	sb.append(anterior.getID())
-			// 	  .append(" <- (")
-			// 	  .append(node.getID())
-			// 	  .append("; ")
-			// 	  .append(node.getNome())
-			// 	  .append("; ")
-			// 	  .append(node.getNota())
-			// 	  .append(") -> ");
-			// 	  node = node.getProx();
-			// 	  anterior = anterior.getProx();
-			// 	  if (node != null) {
-			// 		  sb.append(node.getID())
-			// 		    .append("\n");
-			// 	  }
-			// 	  cont++;
-			// }
-
-			// if (cont == nos) {
-			// 	cont = 0;
-			// }
-		//}
-		
-		//sb.append("null.");
 		
 		return sb.toString();
 	}

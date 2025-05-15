@@ -112,45 +112,5 @@ public class Node {
 
 
         return sb.toString();
-
-		// String IDanterior = "null";
-		// String IDprox = "null";
-
-		// Node node = this;
-
-		// if (anterior == null) {
-		// 	//IDanterior = anterior.getID();
-		// 	sb.append(IDanterior);
-		// 	IDanterior = node.getID();
-		// 	node = node.getProx();
-		// 	IDprox = prox.getProx().getID();
-		// }
-
-		// if (prox != null) {
-		// 	if (prox.getProx() == null) {
-		// 		IDprox = "null";
-		// 	}
-		// 	//sb.append(IDprox);
-		// 	IDanterior = node.getID();
-		// 	node = node.getProx();
-		// 	IDprox = prox.getProx().getID();
-		// }
-
-		// while (node != null) {
-		// 	sb.append(IDanterior)
-		//   	  .append(" <- (")
-		//   	  .append(ID)
-		//   	  .append("; ")
-		//   	  .append(nome)
-		//   	  .append("; ")
-		//   	  .append(nota)
-		//   	  .append(") -> ")
-		//   	  .append(IDprox);
-		// 	  IDanterior = node.getID();
-		// 	  node = node.getProx();
-		// 	  IDprox = prox.getProx().getID();
-		// }
-
-		//return sb.toString();
 	}
 }
