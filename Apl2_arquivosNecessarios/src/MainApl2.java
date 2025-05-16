@@ -6,7 +6,7 @@
 // arquivo: src/MainApl2.java
 
 // Eduardo Kenji Hernandes Ikematu - 10439924; Gabriel Hideaquy Kondo - 10436238; João Pedro Sinzato Bocchini - 10440034
-// TODO: Listar todas as referências consultadas para solucionar a atividade.
+// Referências: https://pt.stackoverflow.com/questions/374001/lista-duplamente-encadeada-java, https://erinaldosn.wordpress.com/wp-content/uploads/2013/05/aula-12-lista-duplamente-encadeada.pdf, https://takeuforward-org.translate.goog/data-structure/doubly-linked-list-in-java/?_x_tr_sl=en&_x_tr_tl=pt&_x_tr_hl=pt&_x_tr_pto=tc, 
 
 import apl2.Data;
 
@@ -113,13 +113,9 @@ public class MainApl2 {
 		System.out.println("testList.getHead(): " + testList.getHead());
 		System.out.println("testList.getTail(): " + testList.getTail() + '\n');
 		
-		// TODO: Inserir um nó no início da lista testList com os dados ("qwerty", "QWERTY", 1.2f).
 		testList.insert("qwerty", "QWERTY", 1.2f);
-		// TODO: Inserir um nó no final da lista testList com os dados ("WASD", "wasd", 3.4f).
 		testList.append("WASD", "wasd", 3.4f);
-		// TODO: Inserir um nó no início da lista testList com os dados ("ijkl", "IJKL", 5.6f).
 		testList.insert("ijkl", "IJKL", 5.6f);
-		// TODO: Inserir um nó no final da lista testList com os dados ("1234", "Um Dois Tres Quatro", 7.8f).
 		testList.append("1234", "Um Dois Tres Quatro", 7.8f);
 
 		System.out.println(">>>>>>>>>> testList >>>>>>>>>>\n" + testList  + "\n<<<<<<<<<< testList <<<<<<<<<<\n");
