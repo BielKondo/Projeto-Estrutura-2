@@ -37,7 +37,7 @@ public class Operation {
 
 			//Nota
 			int inteiro = head.getInteiro();
-			int decimal = head.getDecimal();
+			int decimal = head.getDecimo();
 			float nota;
 			if (inteiro == -1 || decimal == -1) {
 				nota = 99.9f;
