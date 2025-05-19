@@ -27,7 +27,7 @@ public class DLinkedList {
 	public DLinkedList() {
 		this.head = null;
 		this.tail = null;
-		cont = 0;
+		this.cont = 0;
 	}
 
 
@@ -41,9 +41,11 @@ public class DLinkedList {
 		novoNo.setNota(nota);
 		if (head == null) { // Se a lista estiver vazia
 			head = tail = novoNo;
+			novoNo.setAnterior(null);
+			novoNo.setProx(null);
 		} else {
 			novoNo.setProx(head);
-			head.setAnterior(novoNo);
+			head.setAnterior(novoNo);	
 			head = novoNo;
 		}
 		head = novoNo;
@@ -62,19 +64,16 @@ public class DLinkedList {
 
 		if (head == null) { // Se a lista estiver vazia
 			head = tail = novoNo;
-			cont++;
-		}
+			novoNo.setAnterior(null);
+			novoNo.setProx(null);
+		} 
 		
-		Node aux = head;
-		
-		while (aux.getProx() != null) { // Percorre até o último nó
-			aux = aux.getProx();
+		else  {
+        	tail.setProx(novoNo);
+        	novoNo.setAnterior(tail);
+        	novoNo.setProx(null);
+        	tail = novoNo;
 		}
-
-		aux.setProx(novoNo); // aux -> (tail), novoNo
-		novoNo.setAnterior(aux); // aux <- novoNo
-		novoNo.setProx(null); // aux -> <- (tail), novoNo, null
-		tail = novoNo; // aux -> <- (tail), novoNo -> (tail), null
 		cont++;
 	}
 

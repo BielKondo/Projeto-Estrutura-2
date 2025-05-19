@@ -28,27 +28,27 @@ public class Operation {
 		int qtd = original.count();
 
 		while (contador < qtd && head != null) { // verifica se transformou todos os nós
-		// ID
-		int id = head.getId();
-		String idS = "23.S1-" + id;
+			// ID
+			int id = head.getId();
+			String idS = "23.S1-" + id;
 
-		//Nome
-		String nome = head.getNome();
+			//Nome
+			String nome = head.getNome();
 
-		//Nota
-		int inteiro = head.getInteiro();
-		int decimal = head.getDecimal();
-		float nota;
-		if (inteiro == -1 || decimal == -1) {
-			nota = 99.9f;
-		} else {
-			String n = inteiro + "." + decimal;
-			nota = Float.parseFloat(n);
-		}
+			//Nota
+			int inteiro = head.getInteiro();
+			int decimal = head.getDecimal();
+			float nota;
+			if (inteiro == -1 || decimal == -1) {
+				nota = 99.9f;
+			} else {
+				String n = inteiro + "." + decimal;
+				nota = Float.parseFloat(n);
+			}
 
-		listaDupla.append(idS, nome, nota); // adiciona o nó transformado na listaDupla
-		contador++;
-		head = head.getNext(); // avança para o próximo nó
+			listaDupla.append(idS, nome, nota); // adiciona o nó transformado na listaDupla
+			contador++;
+			head = head.getNext(); // avança para o próximo nó
 		}
 
 		return listaDupla;

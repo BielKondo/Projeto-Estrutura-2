@@ -108,9 +108,6 @@ public class Node {
 		  .append(") -> ")
 		  .append(IDProx);
 
-
-
-
         return sb.toString();
 	}
 }
